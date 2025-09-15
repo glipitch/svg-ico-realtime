@@ -35,7 +35,8 @@ catch (Exception ex)
 {
     Console.WriteLine($"Failed to enumerate existing SVGs: {ex.Message}");
 }
-Console.WriteLine($"Watching folder: {folder}");
+
+Console.WriteLine($"Watching folder: {Path.GetFullPath(folder)}");
 Console.WriteLine("Press Ctrl+C to exit.");
 var exitEvent = new ManualResetEventSlim(false);
 Console.CancelKeyPress += (s, e) => { e.Cancel = true; exitEvent.Set(); };
